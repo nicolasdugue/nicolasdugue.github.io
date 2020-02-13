@@ -1,0 +1,154 @@
+  \documentclass{article} 
+ % categorie de document
+ 
+ \usepackage[latin1]{inputenc}
+ % c pour les accents 
+ \usepackage{url}
+ \usepackage{xcolor}
+ \usepackage{a4wide}
+ \usepackage{fullpage}
+ %\usepackage{amsfonts}
+ %\usepackage{amsmath}
+ %\usepackage{latexsym}
+ \usepackage[frenchb]{babel}
+ % c'est pour afficher le document comme en typographie FR %
+  \usepackage{graphics}
+ \usepackage[draft]{graphicx}
+ % gère les images png, jpeg, gif
+ % "draft" permet de gagner du temps pour les recompilation comportant des images
+ % il ne les affiche pas mais grade les boites vides de la taille des images
+ % l'option "final" est en général mise par défaut et sert à ravoir les images
+
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e} 
+ 
+ \title{Manipuler des graphes}
+ %\author{Linda}
+ % on les a pas encore afficher
+ \date{}
+ % ça c parce que si on le dit pas, latex met la date de compilation par défaut
+
+\newtheorem{definition}{Definition}
+
+ \begin{document}
+ 
+ \maketitle
+ 
+ 
+\section{Représenter un graphe}
+\subsection{Rappel de théorie des graphes}
+\begin{definition} (Intuitive)
+Un graphe orienté $G$ est un schéma constitué par un ensemble de points et par un ensemble de flèches reliant chacune deux points. Les points
+sont appelés les sommets du graphe. L'ensemble des sommets est noté $V$. Les flèches sont appelées les arcs du graphe. L'ensemble des arcs est noté $A$. Soient $x, y \in V$, on a $(x, y) \in A$ si et seulement si il existe un arc avec pour origine $x$ et pour extrémité $y$.
+\end{definition}
+\begin{figure}[h]
+\centerline{ \includegraphics[scale=0.15]{graph.pdf}}
+\caption{Un graphe orienté  \label{fig:1}}
+
+\end{figure}
+
+Dans la Figure \ref{fig:1}, on observe l'ensemble des sommets $V = (1, 2, 3, 4, 5)$ \\
+et l'ensemble des arcs $A = ( (1, 2), (1, 3), (1, 4), (3, 2), (3, 4), (3, 5), (4, 2), (4, 5) )$
+\vspace{0.2cm}
+\begin{definition}
+On appelle degré entrant (resp. sortant) d'un sommet $v \in V$ le nombre d'arcs dont l'extrémité (resp. l'origine) est $v$. On le note $d^ -(v)$ (resp. $d^ +(v)$).
+\end{definition}
+%\begin{definition}
+%On appelle degré sortant d'un sommet $v \in V$ le nombre d'arcs dont l'origine est $v$. On le note $d^ +(x)$.
+%\end{definition}
+Dans la Figure \ref{fig:1}, on a $d^ +(1) = 3$, $d^ -(1) = 0$, $d^ +(5) = 0$, $d^ -(5) = 2$, $d^ +(3) = 3$, $d^ -(3) = 1$, etc
+
+
+
+\subsection{La liste d'adjacence}
+\begin{definition}
+On dit que $v \in V$ est un voisin sortant (resp. entrant) de $u \in V$ s'il existe un arc $(u, v)$ (resp. $(v, u$)) $\in A$.
+\end{definition}
+%\begin{definition}
+%On dit que $v \in V$ est un voisin entrant de $u \in V$ s'il existe un arc $(v, u) \in A$.
+%\end{definition}
+
+
+\begin{definition}
+Pour $v \in V$, nous définissons $N^+(v)$ (resp. $N^ -(v)$) comme l'ensemble des voisins \emph{sortants} (resp. \emph{entrants}) de $v$. L'ensemble des voisins de $v$ est noté $N(v) = N^+(v) \cup N^-(v)$.
+\end{definition}
+Dans la Figure \ref{fig:1}, $N^+(1) = ( 2, 3, 4 )$ et $N^-(1) = \emptyset$, $N^+(5) = \emptyset$ et $N^-(5) = ( 3, 4 )$, $N^+(3) = ( 2, 4, 5 )$ et $N^-(3) = ( 1 )$.
+
+On peut choisir de représenter les graphes sous forme de liste d'adjacence.
+La liste d'adjacence est une liste qui donne pour chaque sommet $v1, \ldots, vn \in V$, la liste de ses voisins sortants $N^+(v1), \ldots, N^+(vn)$ sous la forme $( ( v1 , N^+(v1) ), \ldots, ( vn, N^+(vn) ) )$.
+La liste d'adjacence du graphe représenté dans la Figure \ref{fig:1} est : \\
+$$( ( 1 , ( 2 , 3, 4) ), (2, \emptyset ), ( 3, ( 2, 5 ) ), ( 4 , ( 2, 5 ) ), ( 5, \emptyset ) )$$
+
+\section{Travail}
+\subsection{Stocker le graphe}
+Le stockage du graphe se fera sous forme de liste d'adjacence :
+\begin{itemize}
+\item La classe $Sommet$ contient l'identifiant du noeud ainsi que ses voisins. D'autres informations peuvent y \^etre stockées.
+\item La classe $Graphe$ permet de stocker l'ensemble des noeuds du graphe.
+\end{itemize}
+
+
+\subsection{Explorer le graphe}
+Pour commencer à étudier les propriétés d'un graphe, il s'agit tout d'abord d'\^etre capable d'en explorer le contenu facilement et de disposer de quelques mesures simples mais très utilisées : \\
+\begin{itemize}
+	\item Conna\^itre le nombre de sommets, d'arcs
+	\item Obtenir l'ensemble des sommets et leur degré
+	\item Obtenir l'ensemble des sommets triés par degré sortant
+	\item Obtenir l'ensemble des arcs
+\end{itemize}
+
+
+Une interface devra \^etre proposée dans votre application pour qu'un utilisateur puisse appeler toutes ces fonctionnalités, en visualiser les résultats et ainsi commencer à fouiller les données de son graphe.
+
+
+\subsection{Parcourir un graphe}
+
+Les parcours en largeur (Breadth) et profondeur (Depth) font partie des algorithmes de base en théorie des graphes.
+Ils permettent par exemple de détecter les différentes composantes connexes d'un graphe, à savoir les ensembles de sommets connectés d'un graphe.
+\begin{algorithm}[h]
+{\color{gray} 
+Initialisation\\
+}
+$S=\emptyset \subseteq V $  \\
+$Q=\emptyset \subseteq V $  \\
+$v_{0} \in V $ la source de l'algorithme  \\
+Ajouter $v_{0}$ à $Q$
+
+	\Tq{$Q$ $\neq$ $\emptyset$}{
+		Sortir un élément $v$ de $Q$ \\
+		\Si{$v \ni S$} {
+			Ajouter $v$ à $S$ \\
+			\PourTous{$w \in N^(v) tq w \ni S$} {
+				Ajouter $w$ à $Q$
+			}
+		}
+		
+	}
+$S$ est une composante connexe du graphe $G=(V,E)$ \\
+\caption{Parcours d'un graphe}
+
+\end{algorithm}\\
+Si $Q$ est utilisé comme une file (FIFO), alors le parcours est un parcours en largeur.
+En revanche, si $Q$ est utilisé comme une pile (LIFO), alors le parcours effectué est un parcours en profondeur. \\
+
+Pour \^etre plus souple, on implémentera ce programme de façon générique. On définira ainsi une interface $SDD$ contenant les méthodes \textit{push(Vertex v)} et \textit{Vertex pop()}. Les classes Pile et File définies dans le TDm2 devront implémenter cette interface. L'algorithme de parcours aura pour paramètre un objet de type $SDD$. Ainsi, cela permettra de passer d'un parcours d'un type à un autre en toute transparence.
+
+
+ 
+ \bibliographystyle{plain}
+ \bibliography{biblio}
+% \newpage
+% \section{Annexe : le graphe de test}
+% 
+% \begin{figure}
+%\includegraphics[scale=0.6]{graph_exemple.pdf}
+%\caption{Le graphe de test avec les sommets H,G,F qui sont des \emph{Page} et les autres sommets qui sont des \emph{Utilisateur}\label{fig:2}}
+%\end{figure}
+% \begin{figure}
+% \includegraphics[scale=0.15]{graphTest.pdf}
+%\caption{Un graphe de test  \label{fig:2}}
+%\end{figure}
+% \begin{figure}
+%  \includegraphics[scale=0.15]{graphTestAdj.pdf}
+%\caption{Fichier correspondant au graphe de test sous forme de liste d'adjance  \label{fig:3}}
+%\end{figure}
+ \end{document}

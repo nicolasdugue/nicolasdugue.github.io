@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : FruityBlue 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120307
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Nicolas DUGUE - LIFO - Analyse de Réseaux Sociaux</title>
+<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="wrapper2">
+		<div id="header" class="container">
+			<div id="logo">
+				<center><img src="images/dot-graph.jpg" width="39.2%"></center>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="current_page_item"><a href="#">Présentation</a></li>
+					<li><a href="#">Recherche</a></li>
+					<li><a href="#">Enseignements</a></li>
+<li><a href="#">Divers</a></li>
+					<li><a href="#">Réseaux sociaux</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<!-- end #header -->
+		<div id="page">
+			<div id="content">
+				<div class="post">
+					<h2 class="title">Moi moi moi moi !</h2>
+					<div style="clear: both;">&nbsp;</div>
+					<div class="entry">
+<img src="images/IMG_2599-001.JPG" width="20%" style="float : left; margin-right : 20px; margin-bottom : 10px;">
+<p style="float : right">
+<b>mail :</b>  nicolas.dugue[@]univ-orleans.fr <br />
+<b>Bureau :</b>  B13<br />
+<b>Tel :</b> 02.38.41.72.68 </p>
+						<p><b>Coordonnées postales</b><br />
+
+LIFO - Bâtiment 3IA <br />
+rue Léonard de Vinci <br />
+B.P. 6759 <br />
+F-45067 ORLEANS Cedex 2 FRANCE</p>
+
+
+
+
+						<p style="clear : both">Je suis en Thèse à l'université d'Orléans (Laboratoire d'Informatique Fondamentale d'Orleans - LIFO) au sein de l'équipe <a href='http://www.univ-orleans.fr/lifo/equipe.php?id=2&lang=fr&sub=sub1'>PaMDA</a> depuis octobre 2011 sous l'encadrement d'<a href='http://www.univ-orleans.fr/lifo/membres/Anthony.Perez/'>Anthony Perez</a>.<br />
+Je m'intéresse à l'étude des grands graphes et notamment ceux des réseaux sociaux (Twitter par exemple).<br />
+Je participe au projet <a href='http://traclifo.univ-orleans.fr/INEX/'>Inex</a>, Information en Nuage et Expérimentations et Vérification.</p>
+					</div>
+				</div>
+				<div class="post">
+					<h2 class="title">Mes axes de recherche</h2>
+					<div style="clear: both;">&nbsp;</div>
+					<div class="entry">
+					<p>
+						<ul>
+							<li>L'analyse des réseaux sociaux : influence, diffusion de l'information, détection de communautés ;</li>
+							<li>La théorie des graphes ;</li>
+							<li>L'analyse de grands graphes ;</li>
+							<li>La parallélisation des algorithmes de graphe ;</li>
+							
+						</ul>
+					</p>
+					
+					</div>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+			<!-- end #content -->
+			<div id="sidebar">
+				<ul>
+					<li>
+						<h2 style=" margin-bottom : 0px;">Les copains</h2>
+						<ul>
+							<li><a href="http://igm.univ-mlv.fr/~chapelle/">Mathieu Chapelle</a></li>
+							<li><a href="http://www.univ-orleans.fr/lifo/Members/Helene.Coullon/">Hélène Coullon</a></li>
+							<li><a href="http://perso.crans.org/danisch/max/home">Maximilien Danisch</a></li>
+							<li><a href="http://eric.univ-lyon2.fr/~aguille/Adrien_Guille_-_Research.html">Adrien Guille</a></li>
+							<!--- <li><a href="#">Fatiha Houacine</a></li> !-->
+							<li><a href="http://galatasaray.academia.edu/VincentLabatut">Vincent Labatut</a></li>
+							<!--- <li><a href="#">Charlotte Laclau</a></li> !-->
+							<li><a href="http://www.univ-orleans.fr/lifo/Members/Romain.Letourneur/">Romain Letourneur</a></li>
+							<li><a href="http://www.univ-orleans.fr/lifo/Members/Anthony.Perez/">Anthony Perez</a></li>
+							<li><a href="https://www.sites.google.com/site/simonpetitjeanhomepage/">Simon Petitjean</a></li>
+							<li><a href="http://www.univ-orleans.fr/lifo/Members/Maxime.Senot/">Maxime Senot</a></li>
+							
+							
+							
+							
+							
+							
+						</ul>
+					</li>
+					
+					<li>
+						<h2>Laboratoire - université</h2>
+						<ul style="padding-left : 50px;">
+								<a href='http://www.univ-orleans.fr/lifo/' target='_blank' ><img src="images/logo-lifo.png"  width='180px'></a>
+								<a href='http://www.univ-orleans.fr/' target='_blank' ><img src="images/logo-univ-orleans.png" width='180px'></a>
+						</ul>
+					</li>
+					<!--<li>
+						<h2>Projet - Financement</h2>
+						<ul style="padding-left : 50px;">
+								<a href='http://traclifo.univ-orleans.fr/INEX/'><img src='images/inex.png' width='180px'></a>
+						</ul>
+					</li>!-->
+				</ul>
+			</div>
+			<!-- end #sidebar -->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #page -->
+	</div>
+</div>
+<div id="footer-content">
+	<div id="footer">
+		<p>Partly designed by <a href="http://www.freecsstemplates.org">FCT</a>.</p>
+	</div>
+</div>
+<!-- end #footer -->
+</body>
+</html>

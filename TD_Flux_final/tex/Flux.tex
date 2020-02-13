@@ -1,0 +1,47 @@
+\input{macros_td.tex}
+
+
+\begin{document}
+\feuille {1} 
+%\vspace*{1cm}
+
+\exos
+Le but de cet exercice est d'écrire une application Java en ligne de commande qui permet
+d'afficher les lignes d'un fichier contenant un certain mot. 
+Par exemple, voici la liste des lignes qui
+contiennent le mot "public" dans un fichier UnRectangle.java...\\
+On lance la commande :\\
+java Grep public UnRectangle.java\\
+Et on obtient le résultat :\\
+(UnRectangle.java,1) : public class UnRectangle {\\
+(UnRectangle.java,4) :(public UnRectangle(UnPoint cig,int l,int h) {\\
+(UnRectangle.java,10) : public void translation(int dx,int dy) {\\
+Dans la parentèse (x:y), on trouve en premier x, le nom du fichier et en deuxième y, l'indice de la ligne.\\
+
+La commande à utiliser a la forme générale :
+java Grep mot fichier1 fichier2 ...\\
+
+Remarque : lorsqu'un programme Java est lancé avec des arguments en ligne de commande, ces arguments sont disponibles sous forme de cha\^ines de caractères placées dans le tableau paramètre de la méthode main. Dans l'exemple qui précède, si l'ent\^ete de la méthode principale est {\tt public static void main(String[] args)}
+alors lors de l'exécution, args.length vaut $3$, ce qui indique qu'il y a trois arguments en ligne de commande, {\tt args[0]} est la cha\^ine "mot", {\tt args[1]} est la cha\^ine "fichier1" et {\tt args[2]} est la cha\^ine "fichier2".\\
+
+Créer une classe {\tt Grep} contenant un main capable d'effectuer les opérations décrites ci-dessus.
+
+\exos
+Ecrire une classe sort dont le main prend pour argument un nom de fichier texte et effectue une copie de ce fichier avec les lignes triées en utilisant l'ordre lexicographique.\\ 
+Exemple :\\
+Le fichier A est comme suit :
+\begin{verbatim}
+this is the end
+oh, the end 
+my only friend
+\end{verbatim}
+Exécuter la commande {\tt java Sort A} doit écrire un fichier Acopie comme suit : 
+\begin{verbatim}
+my only friend
+oh, the end 
+this is the end
+\end{verbatim}
+\exos
+Parce que jamais deux sans trois... Mais on a déjà bossé suffisamment et je n'ai plus d'idées. \\\\
+{\tt THE END}
+\end{document}

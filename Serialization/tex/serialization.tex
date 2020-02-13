@@ -1,0 +1,61 @@
+\input{macros_td.tex}
+
+
+\begin{document}
+\feuille {1} 
+%\vspace*{1cm}
+
+\exos
+
+ Dans le TD sur la gestion d'un ensemble de {\tt Note}, nous choisissons d'écrire nos représentations d'objets {\tt Note} sous un format texte, chaque ligne représentant une note.
+ Il est possible de choisir une approche différente, celle qui permet de stocker des objets \emph{sérializés} dans un fichier. 
+ La première méthode (format texte) a l'avantage de créer un fichier lisible par l'homme.
+ La seconde méthode (sérialization) encode l'objet dans un format illisible. En revanche, elle demande moins de lignes de codes. Par ailleurs, elle est plus générique : la manière de sérializer un objet est la même quelque soit l'objet, il suffit qu'il implémente l'interface {\tt Serializable}.
+ L'idée, c'est que c'est Java qui se charge de l'écriture de l'objet et de tous ses champs.\\
+ 
+ 
+ 
+ Pour sérializer un objet, il suffit de :
+ \begin{itemize}
+	 \item faire en sorte qu'il soit sérializable ainsi que tous ces champs
+	 \item l'écrire dans un fichier en utilisant {\tt FileOutputStream} et {\tt ObjectOutputStream}\\
+ \end{itemize}
+ 
+ 
+ 
+ Pour retrouver cet objet sérializé, il faut :
+ \begin{itemize}
+	 \item récupérer l'objet sous forme de {\tt Serializable} dans le fichier dans lequel il est stocké en utilisant {\tt FileInputStream} et {\tt ObjectInputStream}
+	 \item caster cet objet dans le type qui convient
+ \end{itemize}
+ 
+ 
+ .
+ 
+ \paragraph{Interface Serializable} Faire en sorte que $Note$ et $EnsembleNote$ implémentent l'interface $Serializable$.
+ \paragraph{Les méthodes de sérialization} 
+ Ecrire une méthode qui écrit un objet $Note$ dans un fichier en utilisant : \begin{itemize}
+ \item $public$ $FileOutputStream(String$ $name)$
+                 $throws$ $FileNotFoundException$ qui ouvre un flux pour écrire dans le fichier d'emplacement $name$\\
+ \item $public$ $ObjectOutputStream(OutputStream$ $out)$
+                   $throws$ $IOException$ qui permet d'écrire des objets sur le flux $out$\\
+ \item $public$ $final$ $void$ $writeObject(Object$ $obj)$
+                       $throws$ $IOException$ de la classe {\tt ObjectOutputStream} qui écrit un objet $obj$\\
+ \end{itemize}
+ 
+ 
+ Puis récupérer l'objet $Note$ que l'on vient d'écrire à partir du fichier en vous servant de : 
+ \begin{itemize}
+ \item $public$ $FileInputStream(String$ $name)$
+               $ throws$ $FileNotFoundException$ qui ouvre un flux pour lire dans le fichier d'emplacement $name$ \\
+ \item $public$ $ObjectInputStream(InputStream$ $in)$
+                  $throws$ $IOException$ qui permet de lire des objets avec le flux $in$ \\
+ \item $public$ $final$ $Object$ $readObject()$
+                        $throws$ $IOException,$
+                               $ClassNotFoundException$ de la classe {\tt ObjectInputStream} qui lit un objet\\
+ \end{itemize}
+ 
+ Effectuer le m\^eme processus avec un objet {\tt EnsembleNote}.
+ 
+%\end{figure}
+ \end{document}
